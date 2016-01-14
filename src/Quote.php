@@ -4,11 +4,6 @@ namespace PP\Common;
 
 class Quote implements \ArrayAccess
 {
-    /**
-     * option
-     * @var array 
-     */
-    private $option = array();
     
     /**
      * url post api endpoint
@@ -124,7 +119,6 @@ class Quote implements \ArrayAccess
      */
     private function checkRule($rule, $checkValue)
     {
-        //$errors = '';
         switch ($rule) {
             case 'required':
                 if (empty($checkValue)) {
@@ -153,7 +147,7 @@ class Quote implements \ArrayAccess
             default :
                 return 'rule not match';
         }
-        //return $errors;
+        
     }
     
     /**

@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "PP\\Common\\Quote": "src"
+            "PP\\Common\\Quote\\": "src"
         }
     }
 }
