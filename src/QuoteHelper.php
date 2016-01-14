@@ -20,10 +20,10 @@ END;
     
     public static function googleBuildQueryStr()
     {
-        $ar = array('kwds','mtch','cmid','dgid','kwid','netw','dvce','crtv','adps');
+        $ar = array('kwds', 'mtch', 'cmid', 'dgid', 'kwid', 'netw', 'dvce', 'crtv', 'adps');
         $out = array();
         foreach ($ar as $field) {
-            $out[$field] = $_GET[$field] ;
+            $out[$field] = $_GET[$field];
         }
         return http_build_query($out);
     }

@@ -30,7 +30,7 @@ class Quote implements \ArrayAccess
     
     /**
      * 
-     * @param array $option
+     * @param array $setting
      */
     public function __construct($setting = array())
     {
@@ -56,7 +56,7 @@ class Quote implements \ArrayAccess
             }
 
             foreach ($ruleset as $rule) {
-                $checkValue = isset($postArray[$field])?$postArray[$field]:'';
+                $checkValue = isset($postArray[$field]) ? $postArray[$field] : '';
                 $errorStr = $this->checkRule($rule, $checkValue);
                 if (!empty($errorStr)) {
                     $error[$field] = $errorStr;
@@ -81,7 +81,7 @@ class Quote implements \ArrayAccess
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $this->getPostDate());
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $result= curl_exec($ch);
+        $result = curl_exec($ch);
         curl_close($ch);
         
         $_SESSION['uid'] = $result;
@@ -96,7 +96,7 @@ class Quote implements \ArrayAccess
         $postData = array_merge($this->defaultFieldValue, $this->postInfo);
         $postData['remote_ip'] = $_SERVER['REMOTE_ADDR'];
         $postData['from_path'] = $_SERVER["REQUEST_URI"];
-        $postData['end_time'] =date('Y-m-d H:i:s', time());
+        $postData['end_time'] = date('Y-m-d H:i:s', time());
         
         $uid = $this->getUid();
         if (!empty($uid)) {
@@ -209,7 +209,7 @@ class Quote implements \ArrayAccess
         if (empty($num)) {
             return true;
         }
-        $replaceArray = array('(',')',' ','-','+');
+        $replaceArray = array('(', ')', ' ', '-', '+');
         $new_str = str_replace($replaceArray, '', $num);
 
         if (strlen($new_str) < 6) {
@@ -229,7 +229,7 @@ class Quote implements \ArrayAccess
      */
     public function hasError($key)
     {
-        return isset($this->errors[$key])?true:false;
+        return isset($this->errors[$key]) ? true : false;
     }
     
     /**
@@ -244,7 +244,7 @@ class Quote implements \ArrayAccess
     
     /**
      * set up starttime
-     * @return type
+     * @return string
      */
     private function getStartTime()
     {

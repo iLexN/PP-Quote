@@ -17,7 +17,7 @@ class QuoteController
         if (!empty($_POST)) {
             if ($this->quote->validate($_POST)) {
                 $this->quote->post();
-                header('Location: '. $nextPage . '?uid=' . $this->quote->getUid());
+                header('Location: '.$nextPage.'?uid='.$this->quote->getUid());
             }
         }
     }
@@ -28,7 +28,7 @@ class QuoteController
             if ($this->quote->validate($_POST)) {
                 $this->quote->post();
                 $this->quote->clearUID();
-                header('Location: '. $nextPage);
+                header('Location: '.$nextPage);
             }
         }
     }
