@@ -1,0 +1,22 @@
+{
+    "name": "ilexn/pp-quote",
+    "description": "quote",
+    "authors": [
+        {
+            "name": "iLexN",
+            "email": "ilex.job@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "require": {
+        
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "PP\\Common\\Quote": "src"
+        }
+    }
+}
