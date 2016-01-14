@@ -7,10 +7,10 @@ class Quote implements \ArrayAccess
     
     /**
      * url post api endpoint
+     * http://resources.pacificprime.com/dbctrl/
      * @var string 
      */
     private $url = 'http://r.web7.dev/dbctrl/';
-    //private $url = 'http://resources.pacificprime.com/dbctrl/';
 
     /**
      * post data
@@ -144,7 +144,7 @@ class Quote implements \ArrayAccess
                 if (!$this->checkDate($checkValue)) {
                     return 'invalid_date';
                 }
-            default :
+            default:
                 return 'rule not match';
         }
         
