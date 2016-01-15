@@ -147,7 +147,6 @@ class Quote implements \ArrayAccess
             default:
                 return 'rule not match';
         }
-        
     }
     
     /**
