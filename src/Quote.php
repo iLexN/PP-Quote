@@ -9,7 +9,7 @@ class Quote implements \ArrayAccess
     
     /**
      * url post api endpoint
-     * http://resources.pacificprime.com/dbctrl/
+     * 
      * @var string 
      */
     private $url = 'http://r.web7.dev/dbctrl/';
