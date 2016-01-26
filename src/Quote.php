@@ -144,6 +144,7 @@ class Quote implements \ArrayAccess
                 if (!$this->checkDate($checkValue)) {
                     return 'invalid_date';
                 }
+                break;
             default:
                 return 'rule not match';
         }
