@@ -2,7 +2,7 @@
 
 namespace PP\Common;
 
-class QuoteStep1
+class QuoteStepLast
 {
     public $quote;
     
