@@ -2,6 +2,8 @@
 
 namespace PP\Common;
 
+use PP\Common\QuoteValid;
+
 class Quote implements \ArrayAccess
 {
     
@@ -126,22 +128,22 @@ class Quote implements \ArrayAccess
                 }
                 break;
             case 'email':
-                if (!$this->checkEmail($checkValue)) {
+                if (!QuoteValid::checkEmail($checkValue)) {
                     return 'invalid_email';
                 }
                 break;
             case 'phone':
-                if (!$this->checkPhone($checkValue)) {
+                if (!QuoteValid::checkPhone($checkValue)) {
                     return 'invalid_phone';
                 }
                 break;
             case 'age':
-                if (!$this->checkAge($checkValue)) {
+                if (!QuoteValid::checkAge($checkValue)) {
                     return 'invalid_age';
                 }
                 break;
             case 'ddmmyyyy':
-                if (!$this->checkDate($checkValue)) {
+                if (!QuoteValid::checkDate($checkValue)) {
                     return 'invalid_date';
                 }
                 break;
@@ -149,79 +151,7 @@ class Quote implements \ArrayAccess
                 return 'rule not match';
         }
     }
-    
-    /**
-     * 
-     * @param int $age
-     * @return boolean
-     */
-    private function checkAge($age)
-    {
-        if (empty($age)) {
-            return true;
-        }
-        return is_numeric($age);
-    }
 
-    /**
-     * 
-     * @param string $date
-     * @return boolean
-     */
-    public function checkDate($date)
-    {
-        if (empty($date)) {
-            return true;
-        }
-        $dates = explode('/', $date);
-        $d = isset($dates[0]) ? $dates[0] : false;
-        $m = isset($dates[1]) ? $dates[1] : false;
-        $y = isset($dates[2]) ? $dates[2] : false;
-
-        return checkdate(intval($m), intval($d), intval($y));
-    }
-
-    /**
-     * 
-     * @param string $email
-     * @return boolean
-     */
-    public function checkEmail($email)
-    {
-        if (empty($email)) {
-            return true;
-        }
-        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-
-    /**
-     * check phone
-     * @param string $num
-     * @return boolean
-     */
-    private function checkPhone($num)
-    {
-        if (empty($num)) {
-            return true;
-        }
-        $replaceArray = array('(', ')', ' ', '-', '+');
-        $new_str = str_replace($replaceArray, '', $num);
-
-        if (strlen($new_str) < 6) {
-            return false;
-        }
-        
-        if (!is_numeric($new_str)) {
-            return false;
-        } else {
-            return true;
-        }
-    }
     /**
      * check have error of field
      * @param string $key
