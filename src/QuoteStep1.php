@@ -2,7 +2,7 @@
 
 namespace PP\Common;
 
-class QuoteController
+class QuoteStep1
 {
     public $quote;
     
@@ -11,24 +11,13 @@ class QuoteController
         $this->quote = $quote;
     }
     
-    public function firstStep($nextPage)
+    public function process($nextPage)
     {
         $this->quote->clearUID();
         if (!empty($_POST)) {
             if ($this->quote->validate($_POST)) {
                 $this->quote->post();
                 header('Location: '.$nextPage.'?uid='.$this->quote->getUid());
-            }
-        }
-    }
-    
-    public function lastStep($nextPage)
-    {
-        if (!empty($_POST)) {
-            if ($this->quote->validate($_POST)) {
-                $this->quote->post();
-                $this->quote->clearUID();
-                header('Location: '.$nextPage);
             }
         }
     }
