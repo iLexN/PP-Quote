@@ -16,23 +16,23 @@ class Quote implements \ArrayAccess
      *
      * @var array
      */
-    private $postInfo = [];
+    private $postInfo = array();
 
     /**
      * errors.
      *
-     * @var array()
+     * @var array
      */
-    public $errors = [];
+    public $errors = array();
 
-    private $fields = [];
+    private $fields = array();
 
-    private $defaultFieldValue = [];
+    private $defaultFieldValue = array();
 
     /**
      * @param array $setting
      */
-    public function __construct($setting = [])
+    public function __construct($setting = array())
     {
         $this->fields = $setting['fields'];
         $this->defaultFieldValue = $setting['default'];
@@ -50,7 +50,7 @@ class Quote implements \ArrayAccess
     {
         $this->postInfo = $postArray;
 
-        $error = [];
+        $error = array();
         foreach ($this->fields as $field => $ruleset) {
             if (empty($ruleset)) {
                 continue;

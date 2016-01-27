@@ -65,7 +65,7 @@ class QuoteValid
         if (empty($num)) {
             return true;
         }
-        $replaceArray = ['(', ')', ' ', '-', '+'];
+        $replaceArray = array('(', ')', ' ', '-', '+');
         $new_str = str_replace($replaceArray, '', $num);
 
         if (strlen($new_str) < 6) {
