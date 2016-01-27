@@ -34,6 +34,9 @@ class Quote implements \ArrayAccess
      */
     public function __construct($setting = array())
     {
+        if (!isset($_SESSION)) {
+            throw new \RuntimeException('Session not found. Forget session_start() ?');
+        }
         $this->fields = $setting['fields'];
         $this->defaultFieldValue = $setting['default'];
         $this->defaultFieldValue['start_time'] = $this->getStartTime();
