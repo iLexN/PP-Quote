@@ -18,7 +18,9 @@ class QuoteAB
      */
     public function __construct($path, $version = array(), $key = 'langing')
     {
-        $this->checkAll();
+        $this->checkSession();
+        $this->checkPath($path);
+        $this->checkData($version);
 
         $this->path = $path;
         $this->key = $key;
@@ -82,9 +84,4 @@ class QuoteAB
         }
     }
 
-    private function checkAll(){
-        $this->checkSession();
-        $this->checkPath($path);
-        $this->checkData($version);
-    }
 }
