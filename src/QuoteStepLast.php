@@ -5,12 +5,12 @@ namespace PP\Common;
 class QuoteStepLast
 {
     public $quote;
-    
+
     public function __construct($quote)
     {
         $this->quote = $quote;
     }
-    
+
     public function process($nextPage)
     {
         if (!empty($_POST)) {

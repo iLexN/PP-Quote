@@ -5,12 +5,12 @@ namespace PP\Common;
 class QuoteStep1
 {
     public $quote;
-    
+
     public function __construct($quote)
     {
         $this->quote = $quote;
     }
-    
+
     public function process($nextPage)
     {
         $this->quote->clearUID();
