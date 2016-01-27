@@ -45,6 +45,11 @@ class QuoteAB
         return json_decode($numJson, true);
     }
 
+    /**
+     * get the version key
+     * @param array $data
+     * @return string
+     */
     private function getAB($data = array())
     {
         $versionAB = '';

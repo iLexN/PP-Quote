@@ -33,3 +33,16 @@
     $quote->hasError('name');
     echo($quote['name']);
    
+#AB Test
+    use PP\Common\QuoteAB;
+    session_start();
+    include('src/QuoteAB.php');
+
+    $configAB = array(
+        'A'=>'version A.php',
+        'B'=>'version B.php',
+    );
+
+    $abTest = new QuoteAB('ab.json', $configAB,'dadf');
+
+    echo($abTest->getVersion());
