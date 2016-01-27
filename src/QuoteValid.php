@@ -5,22 +5,23 @@ namespace PP\Common;
 class QuoteValid
 {
     /**
-     * 
      * @param int $age
-     * @return boolean
+     *
+     * @return bool
      */
     public static function checkAge($age)
     {
         if (empty($age)) {
             return true;
         }
+
         return is_numeric($age);
     }
 
     /**
-     * 
      * @param string $date
-     * @return boolean
+     *
+     * @return bool
      */
     public static function checkDate($date)
     {
@@ -36,9 +37,9 @@ class QuoteValid
     }
 
     /**
-     * 
      * @param string $email
-     * @return boolean
+     *
+     * @return bool
      */
     public static function checkEmail($email)
     {
@@ -52,24 +53,25 @@ class QuoteValid
         }
     }
 
-
     /**
-     * check phone
+     * check phone.
+     *
      * @param string $num
-     * @return boolean
+     *
+     * @return bool
      */
     public static function checkPhone($num)
     {
         if (empty($num)) {
             return true;
         }
-        $replaceArray = array('(', ')', ' ', '-', '+');
+        $replaceArray = ['(', ')', ' ', '-', '+'];
         $new_str = str_replace($replaceArray, '', $num);
 
         if (strlen($new_str) < 6) {
             return false;
         }
-        
+
         if (!is_numeric($new_str)) {
             return false;
         } else {

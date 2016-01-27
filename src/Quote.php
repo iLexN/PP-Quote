@@ -2,56 +2,55 @@
 
 namespace PP\Common;
 
-use PP\Common\QuoteValid;
-
 class Quote implements \ArrayAccess
 {
-    
     /**
-     * url post api endpoint
+     * url post api endpoint.
      * 
-     * @var string 
+     * @var string
      */
     private $url = 'http://r.web7.dev/dbctrl/';
 
     /**
-     * post data
-     * @var array 
+     * post data.
+     *
+     * @var array
      */
-    private $postInfo = array();
-    
+    private $postInfo = [];
+
     /**
-     * errors
-     * @var array() 
+     * errors.
+     *
+     * @var array()
      */
-    public $errors = array();
-    
-    private $fields = array();
-    
-    private $defaultFieldValue = array();
-    
+    public $errors = [];
+
+    private $fields = [];
+
+    private $defaultFieldValue = [];
+
     /**
-     * 
      * @param array $setting
      */
-    public function __construct($setting = array())
+    public function __construct($setting = [])
     {
         $this->fields = $setting['fields'];
         $this->defaultFieldValue = $setting['default'];
         $this->defaultFieldValue['start_time'] = $this->getStartTime();
     }
-    
-    
+
     /**
-     * validate form data
+     * validate form data.
+     *
      * @param array $postArray
-     * @return boolean
+     *
+     * @return bool
      */
     public function validate($postArray)
     {
         $this->postInfo = $postArray;
-        
-        $error = array();
+
+        $error = [];
         foreach ($this->fields as $field => $ruleset) {
             if (empty($ruleset)) {
                 continue;
@@ -65,16 +64,17 @@ class Quote implements \ArrayAccess
                 }
             }
         }
-        
+
         if (empty($error)) {
             return true;
         }
         $this->errors = $error;
+
         return false;
     }
-    
+
     /**
-     * post 
+     * post.
      */
     public function post()
     {
@@ -85,38 +85,40 @@ class Quote implements \ArrayAccess
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($ch);
         curl_close($ch);
-        
+
         $_SESSION['uid'] = $result;
     }
-    
+
     /**
-     * get post data
+     * get post data.
+     *
      * @return array
      */
     private function getPostDate()
     {
         $postData = array_merge($this->defaultFieldValue, $this->postInfo);
         $postData['remote_ip'] = $_SERVER['REMOTE_ADDR'];
-        $postData['from_path'] = $_SERVER["REQUEST_URI"];
+        $postData['from_path'] = $_SERVER['REQUEST_URI'];
         $postData['end_time'] = date('Y-m-d H:i:s', time());
-        
+
         $uid = $this->getUid();
         if (!empty($uid)) {
             $postData['uid'] = $uid;
         }
-        
+
         foreach ($postData as $key => $value) {
             if (is_array($value)) {
                 $postData[$key] = implode(',', $value);
             }
         }
+
         return $postData;
     }
-    
+
     /**
-     * 
      * @param string $rule
      * @param string $checkValue
+     *
      * @return string
      */
     private function checkRule($rule, $checkValue)
@@ -153,27 +155,32 @@ class Quote implements \ArrayAccess
     }
 
     /**
-     * check have error of field
+     * check have error of field.
+     *
      * @param string $key
-     * @return boolean
+     *
+     * @return bool
      */
     public function hasError($key)
     {
         return isset($this->errors[$key]) ? true : false;
     }
-    
+
     /**
-     * get error of field
+     * get error of field.
+     *
      * @param string $key
+     *
      * @return string
      */
     public function getError($key)
     {
         return $this->errors[$key];
     }
-    
+
     /**
-     * set up starttime
+     * set up starttime.
+     *
      * @return string
      */
     private function getStartTime()
@@ -181,11 +188,13 @@ class Quote implements \ArrayAccess
         if (!isset($_SESSION['start_time'])) {
             $_SESSION['start_time'] = date('Y-m-d H:i:s', time());
         }
+
         return $_SESSION['start_time'];
     }
-    
+
     /**
-     * get uid
+     * get uid.
+     *
      * @return string
      */
     public function getUid()
@@ -195,17 +204,18 @@ class Quote implements \ArrayAccess
         } elseif (isset($_GET['uid'])) {
             return  $_GET['uid'];
         }
+
         return '';
     }
-    
+
     /**
-     * clear uid
+     * clear uid.
      */
     public function clearUID()
     {
         unset($_SESSION['uid']);
     }
-    
+
     public function offsetSet($offset, $value)
     {
         $this->postInfo[$offset] = $value;
