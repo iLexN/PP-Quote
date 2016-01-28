@@ -53,26 +53,11 @@ class Quote implements \ArrayAccess
     {
         $this->postInfo = $postArray;
 
-        $error = array();
-        foreach ($this->fields as $field => $ruleset) {
-            if (empty($ruleset)) {
-                continue;
-            }
+        $this->errors = $this->getValidateError();
 
-            foreach ($ruleset as $rule) {
-                $checkValue = isset($postArray[$field]) ? $postArray[$field] : '';
-                $errorStr = $this->checkRule($rule, $checkValue);
-                if (!empty($errorStr)) {
-                    $error[$field] = $errorStr;
-                }
-            }
-        }
-
-        if (empty($error)) {
+        if (empty($this->errors)) {
             return true;
         }
-        $this->errors = $error;
-
         return false;
     }
 
@@ -88,7 +73,6 @@ class Quote implements \ArrayAccess
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($ch);
         curl_close($ch);
-
         $_SESSION['uid'] = $result;
     }
 
@@ -116,6 +100,23 @@ class Quote implements \ArrayAccess
         }
 
         return $postData;
+    }
+
+    private function getValidateError()
+    {
+        $error = array();
+        foreach ($this->fields as $field => $ruleset) {
+            if (empty($ruleset)) {
+                continue;
+            }
+            foreach ($ruleset as $rule) {
+                $errorStr = $this->checkRule($rule, isset($this->postInfo[$field]) ? $this->postInfo[$field] : '');
+                if (!empty($errorStr)) {
+                    $error[$field] = $errorStr;
+                }
+            }
+        }
+        return $error;
     }
 
     /**
