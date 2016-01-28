@@ -52,7 +52,6 @@ class QuoteAB
      */
     private function getAB($data = array())
     {
-        $versionAB = '';
         if ($data['A'] <= $data['B']) {
             $data['A'] =  $data['A'] + 1 ;
             $versionAB =  'A';
