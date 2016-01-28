@@ -40,7 +40,7 @@ class QuoteAB
         $numJson = file_get_contents($this->path);
 
         if (empty($numJson)) {
-            return array('A'=>0,'B'=>0);
+            return array('A'=>0, 'B'=>0);
         }
         return json_decode($numJson, true);
     }
@@ -54,10 +54,10 @@ class QuoteAB
     {
         if ($data['A'] <= $data['B']) {
             $data['A'] =  $data['A'] + 1 ;
-            $versionAB =  'A';
+            $versionAB = 'A';
         } else {
             $data['B'] =  $data['B'] + 1 ;
-            $versionAB =  'B';
+            $versionAB = 'B';
         }
         $this->writeJsonData($data);
         return $versionAB;
@@ -71,7 +71,7 @@ class QuoteAB
     private function checkPath($path)
     {
         if (!is_writable($path)) {
-            throw new \Exception('Path not exist or not writeable : ' . $path);
+            throw new \Exception('Path not exist or not writeable : '.$path);
         }
     }
 
@@ -82,10 +82,10 @@ class QuoteAB
         }
     }
 
-    private function checkSession(){
+    private function checkSession()
+    {
         if (!isset($_SESSION)) {
             throw new \RuntimeException('Session not found. Forget session_start() ?');
         }
     }
-
 }
