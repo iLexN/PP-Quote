@@ -46,3 +46,4 @@
     $abTest = new QuoteAB('ab.json', $configAB,'dadf');
 
     echo($abTest->getVersion());
+
