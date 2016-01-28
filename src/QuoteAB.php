@@ -53,10 +53,10 @@ class QuoteAB
     private function getAB($data = array())
     {
         if ($data['A'] <= $data['B']) {
-            $data['A'] =  $data['A'] + 1;
+            $data['A'] = $data['A'] + 1;
             $versionAB = 'A';
         } else {
-            $data['B'] =  $data['B'] + 1;
+            $data['B'] = $data['B'] + 1;
             $versionAB = 'B';
         }
         $this->writeJsonData($data);
