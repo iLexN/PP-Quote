@@ -171,6 +171,15 @@ class Quote implements \ArrayAccess
     }
 
     /**
+     * check have error exist.
+     * 
+     * @return bool
+     */
+    public function hasErrors(){
+        return !empty($this->errors) ? true : false;
+    }
+
+    /**
      * get error of field.
      *
      * @param string $key
@@ -180,6 +189,15 @@ class Quote implements \ArrayAccess
     public function getError($key)
     {
         return $this->errors[$key];
+    }
+
+    /**
+     * get all error
+     *
+     * @return array
+     */
+    public function getErrors(){
+        return $this->errors;
     }
 
     /**
