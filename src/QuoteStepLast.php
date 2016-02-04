@@ -4,6 +4,7 @@ namespace PP\Common;
 
 class QuoteStepLast
 {
+    /* @var $quote \PP\Common\Quote */
     public $quote;
 
     public function __construct($quote)

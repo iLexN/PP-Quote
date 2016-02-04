@@ -73,7 +73,7 @@ class Quote implements \ArrayAccess
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($ch);
         curl_close($ch);
-        $_SESSION['uid'] = $result;
+        return $result;
     }
 
     /**

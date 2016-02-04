@@ -17,13 +17,17 @@ class QuoteStep1
         $this->quote->clearUID();
         if (!empty($_POST)) {
             if ($this->quote->validate($_POST)) {
-                $this->parseResult( $this->quote->post() );
-                header('Location: '.$nextPage.'?uid='.$this->quote->getUid());
+                return $this->parseResult( $this->quote->post() );
             }
         }
     }
 
     private function parseResult($result){
-        $_SESSION['uid'] = $result;
+        $json = json_decode($result,1);
+        if ( !$json['result']) {
+            $this->quote->errors = $json['error'];
+            return false;
+        }
+        return true;
     }
 }
