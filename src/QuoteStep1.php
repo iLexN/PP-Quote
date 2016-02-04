@@ -17,13 +17,14 @@ class QuoteStep1
         $this->quote->clearUID();
         if (!empty($_POST)) {
             if ($this->quote->validate($_POST)) {
-                $this->parseResult( $this->quote->post() );
+                $this->parseResult($this->quote->post());
                 header('Location: '.$nextPage.'?uid='.$this->quote->getUid());
             }
         }
     }
 
-    private function parseResult($result){
+    private function parseResult($result)
+    {
         $_SESSION['uid'] = $result;
     }
 }

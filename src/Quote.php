@@ -175,7 +175,8 @@ class Quote implements \ArrayAccess
      * 
      * @return bool
      */
-    public function hasErrors(){
+    public function hasErrors()
+    {
         return !empty($this->errors) ? true : false;
     }
 
@@ -196,7 +197,8 @@ class Quote implements \ArrayAccess
      *
      * @return array
      */
-    public function getErrors(){
+    public function getErrors()
+    {
         return $this->errors;
     }
 
