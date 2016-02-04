@@ -2,7 +2,7 @@
 
 namespace PP\Common;
 
-class QuoteStep1
+class QuoteStepJson
 {
     /* @var $quote \PP\Common\Quote */
     public $quote;
@@ -12,7 +12,7 @@ class QuoteStep1
         $this->quote = $quote;
     }
 
-    public function process($nextPage)
+    public function process()
     {
         $this->quote->clearUID();
         if (!empty($_POST)) {
