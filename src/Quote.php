@@ -110,7 +110,7 @@ class Quote implements \ArrayAccess
                 continue;
             }
             foreach ($ruleset as $rule) {
-                $errorStr = $this->checkRule($rule, isset($this->postInfo[$field]) ? $this->postInfo[$field] : '');
+                $errorStr = $this->checkRule($rule, $this->offsetGet($field));
                 if (!empty($errorStr)) {
                     $error[$field] = $errorStr;
                 }
