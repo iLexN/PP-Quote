@@ -1,6 +1,6 @@
 <?php
 
-namespace PP\Common;
+namespace PP\Common\Quote;
 
 class QuoteAB
 {

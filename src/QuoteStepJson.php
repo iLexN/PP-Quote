@@ -1,10 +1,12 @@
 <?php
 
-namespace PP\Common;
+namespace PP\Common\Quote;
 
 class QuoteStepJson
 {
-    /* @var $quote \PP\Common\Quote */
+    /**
+     * @var Quote
+     */
     public $quote;
 
     public function __construct($quote)
