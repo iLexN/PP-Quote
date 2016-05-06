@@ -17,6 +17,7 @@ class QuoteHelper
     {
 
         $ar = array('kwds', 'mtch', 'cmid', 'dgid', 'kwid', 'netw', 'dvce', 'crtv', 'adps');
+        $out = array();
         foreach ( $ar as $k ) {
             $out[$k] = isset($_GET[$k]) ? $_GET[$k] : '';
         }

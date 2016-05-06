@@ -14,13 +14,12 @@ class QuoteStep1
         $this->quote = $quote;
     }
 
-    public function process()
+    public function process($data)
     {
         $this->quote->clearUID();
-        if (!empty($_POST)) {
+        if (!empty($data)) {
             if ($this->quote->validate($_POST)) {
                 $this->parseResult($this->quote->post());
-                //header('Location: '.$nextPage.'?uid='.$this->quote->getUid());
                 return true;
             }
         }

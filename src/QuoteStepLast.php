@@ -14,10 +14,10 @@ class QuoteStepLast
         $this->quote = $quote;
     }
 
-    public function process()
+    public function process($data)
     {
         if (!empty($_POST)) {
-            if ($this->quote->validate($_POST)) {
+            if ($this->quote->validate($data)) {
                 $this->quote->post();
                 $this->quote->clearUID();
                 return true;
