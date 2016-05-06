@@ -8,15 +8,15 @@ class QuoteAB
 
     private $key;
 
-    private $version = array();
+    private $version = [];
 
     /**
-     *
-     * @param type $path    json file path
+     * @param type $path json file path
      * @param type $key  unique key
+     *
      * @throws Exception
      */
-    public function __construct($path, $version = array(), $key = 'langing')
+    public function __construct($path, $version = [], $key = 'langing')
     {
         $this->checkSession();
         $this->checkPath($path);
@@ -32,6 +32,7 @@ class QuoteAB
         if (!isset($_SESSION['abTest'][$this->key]) && $_SESSION['abTest'][$this->key] == '') {
             $_SESSION['abTest'][$this->key] = $this->getAB($this->getJsonDate());
         }
+
         return $this->version[$_SESSION['abTest'][$this->key]];
     }
 
@@ -40,17 +41,20 @@ class QuoteAB
         $numJson = file_get_contents($this->path);
 
         if (empty($numJson)) {
-            return array('A'=>0, 'B'=>0);
+            return ['A' => 0, 'B' => 0];
         }
+
         return json_decode($numJson, true);
     }
 
     /**
-     * get the version key
+     * get the version key.
+     *
      * @param array $data
+     *
      * @return string
      */
-    private function getAB($data = array())
+    private function getAB($data = [])
     {
         if ($data['A'] <= $data['B']) {
             $data['A'] = $data['A'] + 1;
@@ -60,6 +64,7 @@ class QuoteAB
             $versionAB = 'B';
         }
         $this->writeJsonData($data);
+
         return $versionAB;
     }
 

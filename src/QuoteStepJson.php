@@ -29,8 +29,10 @@ class QuoteStepJson
         $json = json_decode($result, 1);
         if (!$json['result']) {
             $this->quote->errors = $json['error'];
+
             return false;
         }
+
         return true;
     }
 }
