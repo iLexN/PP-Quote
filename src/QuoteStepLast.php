@@ -1,10 +1,12 @@
 <?php
 
-namespace PP\Common;
+namespace PP\Common\Quote;
 
 class QuoteStepLast
 {
-    /* @var $quote \PP\Common\Quote */
+    /**
+     * @var Quote
+     */
     public $quote;
 
     public function __construct($quote)
@@ -12,14 +14,15 @@ class QuoteStepLast
         $this->quote = $quote;
     }
 
-    public function process($nextPage)
+    public function process()
     {
         if (!empty($_POST)) {
             if ($this->quote->validate($_POST)) {
                 $this->quote->post();
                 $this->quote->clearUID();
-                header('Location: '.$nextPage);
+                return true;
             }
         }
+        return false;
     }
 }
