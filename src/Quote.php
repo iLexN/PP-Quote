@@ -1,6 +1,6 @@
 <?php
 
-namespace PP\Common;
+namespace PP\Common\Quote;
 
 class Quote implements \ArrayAccess
 {
@@ -37,8 +37,10 @@ class Quote implements \ArrayAccess
         if (!isset($_SESSION)) {
             throw new \RuntimeException('Session not found. Forget session_start() ?');
         }
-        $this->fields = $setting['fields'];
-        $this->defaultFieldValue = $setting['default'];
+        if ( !empty($setting) ){
+            $this->fields = $setting['fields'];
+            $this->defaultFieldValue = $setting['default'];
+        }
         $this->defaultFieldValue['start_time'] = $this->getStartTime();
     }
 
