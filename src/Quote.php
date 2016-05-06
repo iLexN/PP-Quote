@@ -6,7 +6,7 @@ class Quote implements \ArrayAccess
 {
     /**
      * url post api endpoint.
-     * 
+     *
      * @var string
      */
     private $url = 'http://r.web7.dev/dbctrl/';
@@ -16,28 +16,28 @@ class Quote implements \ArrayAccess
      *
      * @var array
      */
-    private $postInfo = array();
+    private $postInfo = [];
 
     /**
      * errors.
      *
      * @var array
      */
-    public $errors = array();
+    public $errors = [];
 
-    private $fields = array();
+    private $fields = [];
 
-    private $defaultFieldValue = array();
+    private $defaultFieldValue = [];
 
     /**
      * @param array $setting
      */
-    public function __construct($setting = array())
+    public function __construct($setting = [])
     {
         if (!isset($_SESSION)) {
             throw new \RuntimeException('Session not found. Forget session_start() ?');
         }
-        if ( !empty($setting) ){
+        if (!empty($setting)) {
             $this->fields = $setting['fields'];
             $this->defaultFieldValue = $setting['default'];
         }
@@ -60,6 +60,7 @@ class Quote implements \ArrayAccess
         if (empty($this->errors)) {
             return true;
         }
+
         return false;
     }
 
@@ -75,6 +76,7 @@ class Quote implements \ArrayAccess
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $result = curl_exec($ch);
         curl_close($ch);
+
         return $result;
     }
 
@@ -106,7 +108,7 @@ class Quote implements \ArrayAccess
 
     private function getValidateError()
     {
-        $error = array();
+        $error = [];
         foreach ($this->fields as $field => $ruleset) {
             if (empty($ruleset)) {
                 continue;
@@ -118,6 +120,7 @@ class Quote implements \ArrayAccess
                 }
             }
         }
+
         return $error;
     }
 
@@ -174,7 +177,7 @@ class Quote implements \ArrayAccess
 
     /**
      * check have error exist.
-     * 
+     *
      * @return bool
      */
     public function hasErrors()
@@ -195,7 +198,7 @@ class Quote implements \ArrayAccess
     }
 
     /**
-     * get all error
+     * get all error.
      *
      * @return array
      */

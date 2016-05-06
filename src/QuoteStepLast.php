@@ -20,9 +20,11 @@ class QuoteStepLast
             if ($this->quote->validate($data)) {
                 $this->quote->post();
                 $this->quote->clearUID();
+
                 return true;
             }
         }
+
         return false;
     }
 }

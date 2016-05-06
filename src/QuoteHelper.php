@@ -8,17 +8,17 @@ class QuoteHelper
 
     private $ref;
 
-    public function __construct($ref , $source){
+    public function __construct($ref, $source)
+    {
         $this->source = $source;
         $this->ref = $ref;
     }
-    
+
     public function googleAdInputField()
     {
-
-        $ar = array('kwds', 'mtch', 'cmid', 'dgid', 'kwid', 'netw', 'dvce', 'crtv', 'adps');
-        $out = array();
-        foreach ( $ar as $k ) {
+        $ar = ['kwds', 'mtch', 'cmid', 'dgid', 'kwid', 'netw', 'dvce', 'crtv', 'adps'];
+        $out = [];
+        foreach ($ar as $k) {
             $out[$k] = isset($_GET[$k]) ? $_GET[$k] : '';
         }
 
@@ -36,8 +36,8 @@ END;
 
     public function googleBuildQueryStr()
     {
-        $ar = array('kwds', 'mtch', 'cmid', 'dgid', 'kwid', 'netw', 'dvce', 'crtv', 'adps');
-        $out = array();
+        $ar = ['kwds', 'mtch', 'cmid', 'dgid', 'kwid', 'netw', 'dvce', 'crtv', 'adps'];
+        $out = [];
         foreach ($ar as $field) {
             $out[$field] = $_GET[$field];
         }

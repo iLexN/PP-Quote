@@ -20,9 +20,11 @@ class QuoteStep1
         if (!empty($data)) {
             if ($this->quote->validate($_POST)) {
                 $this->parseResult($this->quote->post());
+
                 return true;
             }
         }
+
         return false;
     }
 
