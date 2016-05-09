@@ -32,7 +32,7 @@ class Quote implements \ArrayAccess
     /**
      * @param array $setting
      */
-    public function __construct($setting = [],$url)
+    public function __construct($setting = [], $url)
     {
         $this->url = $url;
 
