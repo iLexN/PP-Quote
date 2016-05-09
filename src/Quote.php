@@ -30,10 +30,10 @@ class Quote implements \ArrayAccess
     private $defaultFieldValue = [];
 
     /**
-     * @param array $setting
      * @param string $url
+     * @param array $setting
      */
-    public function __construct($setting = [], $url)
+    public function __construct($url, $setting = array())
     {
         $this->url = $url;
         
