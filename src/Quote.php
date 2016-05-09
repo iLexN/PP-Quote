@@ -9,7 +9,7 @@ class Quote implements \ArrayAccess
      *
      * @var string
      */
-    private $url = 'http://r.web7.dev/dbctrl/';
+    private $url = '';
 
     /**
      * post data.
@@ -35,10 +35,7 @@ class Quote implements \ArrayAccess
     public function __construct($setting = [], $url)
     {
         $this->url = $url;
-
-        if (!isset($_SESSION)) {
-            throw new \RuntimeException('Session not found. Forget session_start() ?');
-        }
+        
         if (!empty($setting)) {
             $this->fields = $setting['fields'];
             $this->defaultFieldValue = $setting['default'];
