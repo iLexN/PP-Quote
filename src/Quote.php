@@ -31,12 +31,12 @@ class Quote implements \ArrayAccess
 
     /**
      * @param string $url
-     * @param array $setting
+     * @param array  $setting
      */
-    public function __construct($url, $setting = array())
+    public function __construct($url, $setting = [])
     {
         $this->url = $url;
-        
+
         if (!empty($setting)) {
             $this->fields = $setting['fields'];
             $this->defaultFieldValue = $setting['default'];
