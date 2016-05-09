@@ -32,8 +32,10 @@ class Quote implements \ArrayAccess
     /**
      * @param array $setting
      */
-    public function __construct($setting = [])
+    public function __construct($setting = [],$url)
     {
+        $this->url = $url;
+
         if (!isset($_SESSION)) {
             throw new \RuntimeException('Session not found. Forget session_start() ?');
         }
