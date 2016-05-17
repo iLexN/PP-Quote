@@ -18,6 +18,7 @@ class QuoteStepLast
     {
         if (!empty($_POST)) {
             if ($this->quote->validate($data)) {
+                $this->quote['completed'] = 1;
                 $this->quote->post();
                 $this->quote->clearUID();
 
