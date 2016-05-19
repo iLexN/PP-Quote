@@ -42,6 +42,7 @@ class Quote implements \ArrayAccess
             $this->defaultFieldValue = $setting['default'];
         }
         $this->defaultFieldValue['start_time'] = $this->getStartTime();
+        $this->defaultFieldValue['referred_domain'] = $this->getRefDomain();
     }
 
     /**
@@ -219,6 +220,29 @@ class Quote implements \ArrayAccess
         }
 
         return $_SESSION['start_time'];
+    }
+
+    /**
+     * get ref domain
+     *
+     * @return string
+     */
+    private function getRefDomain(){
+
+        if ( isset($_SESSION['referred_domain']) ) {
+            return $_SESSION['referred_domain'];
+        }
+        $_SESSION['referred_domain'] = '';
+        
+        $refUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] :'';
+        $referer = parse_url($refUrl, PHP_URL_HOST);
+        $serverHost = $_SERVER['HTTP_HOST'];
+
+        if ( $serverHost  != $referer ) {
+            $_SESSION['referred_domain'] = $referer;
+        }
+
+        return $_SESSION['referred_domain'];
     }
 
     /**
