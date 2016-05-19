@@ -43,6 +43,7 @@ class Quote implements \ArrayAccess
         }
         $this->defaultFieldValue['start_time'] = $this->getStartTime();
         $this->defaultFieldValue['referred_domain'] = $this->getRefDomain();
+        $this->setPagePath();
     }
 
     /**
@@ -92,6 +93,7 @@ class Quote implements \ArrayAccess
         $postData['remote_ip'] = $_SERVER['REMOTE_ADDR'];
         $postData['from_path'] = $_SERVER['REQUEST_URI'];
         $postData['end_time'] = date('Y-m-d H:i:s', time());
+        $postData['page_path'] = implode(' -> ',  $_SESSION['page_path']);
 
         $uid = $this->getUid();
         if (!empty($uid)) {
@@ -227,9 +229,9 @@ class Quote implements \ArrayAccess
      *
      * @return string
      */
-    private function getRefDomain(){
-
-        if ( isset($_SESSION['referred_domain']) ) {
+    private function getRefDomain()
+    {
+        if (isset($_SESSION['referred_domain'])) {
             return $_SESSION['referred_domain'];
         }
         $_SESSION['referred_domain'] = '';
@@ -238,11 +240,26 @@ class Quote implements \ArrayAccess
         $referer = parse_url($refUrl, PHP_URL_HOST);
         $serverHost = $_SERVER['HTTP_HOST'];
 
-        if ( $serverHost  != $referer ) {
+        if ($serverHost  != $referer) {
             $_SESSION['referred_domain'] = $referer;
         }
 
         return $_SESSION['referred_domain'];
+    }
+
+    /**
+     * set Page Path array
+     */
+    private function setPagePath()
+    {
+        $url = $_SERVER['REQUEST_URI'];
+        if (!isset($_SESSION['page_path'])) {
+            $_SESSION['page_path'] = array($url);
+        } else {
+            if ($_SESSION['page_path'][count($_SESSION['page_path']) - 1] != $url) {
+                $_SESSION['page_path'][]= $url;
+            }
+        }
     }
 
     /**
