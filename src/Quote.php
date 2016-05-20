@@ -93,7 +93,7 @@ class Quote implements \ArrayAccess
         $postData['remote_ip'] = $_SERVER['REMOTE_ADDR'];
         $postData['from_path'] = $_SERVER['REQUEST_URI'];
         $postData['end_time'] = date('Y-m-d H:i:s', time());
-        $postData['page_path'] = implode(' -> ',  $_SESSION['page_path']);
+        $postData['page_path'] = implode(' -> ', $_SESSION['page_path']);
 
         $uid = $this->getUid();
         if (!empty($uid)) {
@@ -225,7 +225,7 @@ class Quote implements \ArrayAccess
     }
 
     /**
-     * get ref domain
+     * get ref domain.
      *
      * @return string
      */
@@ -235,8 +235,8 @@ class Quote implements \ArrayAccess
             return $_SESSION['referred_domain'];
         }
         $_SESSION['referred_domain'] = '';
-        
-        $refUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] :'';
+
+        $refUrl = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '';
         $referer = parse_url($refUrl, PHP_URL_HOST);
         $serverHost = $_SERVER['HTTP_HOST'];
 
@@ -248,16 +248,16 @@ class Quote implements \ArrayAccess
     }
 
     /**
-     * set Page Path array
+     * set Page Path array.
      */
     private function setPagePath()
     {
         $url = $_SERVER['REQUEST_URI'];
         if (!isset($_SESSION['page_path'])) {
-            $_SESSION['page_path'] = array($url);
+            $_SESSION['page_path'] = [$url];
         } else {
             if ($_SESSION['page_path'][count($_SESSION['page_path']) - 1] != $url) {
-                $_SESSION['page_path'][]= $url;
+                $_SESSION['page_path'][] = $url;
             }
         }
     }
