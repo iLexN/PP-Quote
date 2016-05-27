@@ -253,9 +253,12 @@ class Quote implements \ArrayAccess
     private function setPagePath()
     {
         $url = $_SERVER['REQUEST_URI'];
-        if (!isset($_SESSION['page_path'])) {
+        if (!isset($_SESSION['page_path']) || !is_array($_SESSION['page_path'])) {
             $_SESSION['page_path'] = [$url];
-        } else if (is_array($_SESSION['page_path']) && $_SESSION['page_path'][count($_SESSION['page_path']) - 1] != $url) {
+            return;
+        }
+
+        if ( $_SESSION['page_path'][count($_SESSION['page_path']) - 1] != $url) {
             $_SESSION['page_path'][] = $url;
         }
     }
