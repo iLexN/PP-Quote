@@ -255,7 +255,7 @@ class Quote implements \ArrayAccess
         $url = $_SERVER['REQUEST_URI'];
         if (!isset($_SESSION['page_path']) || !is_array($_SESSION['page_path'])) {
             $_SESSION['page_path'] = [$url];
-            
+
             return;
         }
 
