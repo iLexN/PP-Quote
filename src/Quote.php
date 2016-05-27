@@ -240,7 +240,7 @@ class Quote implements \ArrayAccess
         $referer = parse_url($refUrl, PHP_URL_HOST);
         $serverHost = $_SERVER['HTTP_HOST'];
 
-        if ($serverHost  != $referer) {
+        if ($serverHost != $referer) {
             $_SESSION['referred_domain'] = $referer;
         }
 
@@ -258,7 +258,7 @@ class Quote implements \ArrayAccess
             return;
         }
 
-        if ( $_SESSION['page_path'][count($_SESSION['page_path']) - 1] != $url) {
+        if ($_SESSION['page_path'][count($_SESSION['page_path']) - 1] != $url) {
             $_SESSION['page_path'][] = $url;
         }
     }
