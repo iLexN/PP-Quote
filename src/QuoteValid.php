@@ -30,7 +30,7 @@ class QuoteValid
         }
         $dates = explode('/', $date);
 
-        if ( count($dates) < 3 ) {
+        if (count($dates) < 3) {
             return false;
         }
 
