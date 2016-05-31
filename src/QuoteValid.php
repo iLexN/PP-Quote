@@ -29,11 +29,16 @@ class QuoteValid
             return true;
         }
         $dates = explode('/', $date);
-        $d = isset($dates[0]) ? $dates[0] : false;
-        $m = isset($dates[1]) ? $dates[1] : false;
-        $y = isset($dates[2]) ? $dates[2] : false;
 
-        return checkdate(intval($m), intval($d), intval($y));
+        if ( count($dates) < 3 ) {
+            return false;
+        }
+
+        //$d = isset($dates[0]) ? $dates[0] : false;
+        //$m = isset($dates[1]) ? $dates[1] : false;
+        //$y = isset($dates[2]) ? $dates[2] : false;
+
+        return checkdate(intval($dates[1]), intval($dates[0]), intval($dates[2]));
     }
 
     /**
