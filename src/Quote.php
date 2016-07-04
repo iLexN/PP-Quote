@@ -122,7 +122,7 @@ class Quote implements \ArrayAccess
         return $error;
     }
 
-    private function checkFieldsbyRule($field,$ruleset)
+    private function checkFieldsbyRule($field, $ruleset)
     {
         $error = [];
         foreach ($ruleset as $rule) {
