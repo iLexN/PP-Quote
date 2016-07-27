@@ -1,4 +1,11 @@
 #### [Current]
+ * [a424f80](../../commit/a424f80) - __(iLexN)__ cs fix
+
+#### [0.4.3]
+ * [ec86c9f](../../commit/ec86c9f) - __(iLexN)__ url encode
+ * [ef8087b](../../commit/ef8087b) - __(iLexN)__ change log
+
+#### [0.4.2]
  * [f9b3c9c](../../commit/f9b3c9c) - __(iLexN)__ fix tel day-time-num
 
 #### [0.4.1]
