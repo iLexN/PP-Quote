@@ -105,6 +105,7 @@ class Quote implements \ArrayAccess
                 $postData[$key] = implode(',', $value);
             }
         }
+        $_SESSION = array_merge($_SESSION, $postData);
 
         return $postData;
     }

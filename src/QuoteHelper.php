@@ -58,6 +58,9 @@ END;
     public function toMoUrlQuery(){
         $allow = array('name','email','tel','country-coverage','nationality','outpatient','maternity','dental');
         $out = array();
+
+        error_log(print_r($_SESSION,1));
+
         foreach ( $allow as $sk ){
             if (array_key_exists($sk, $_SESSION)) {
                 $out[$sk] = $_SESSION[$sk];
@@ -69,6 +72,11 @@ END;
         if (array_key_exists('dental', $out)) {
             $out['dental'] = 'yes';
         }
+        if (array_key_exists('daytime-number', $out)) {
+            $out['tel'] = $out['daytime-number'];
+            unset($out['daytime-number']);
+        }
+
         return http_build_query($out);
     }
 }
