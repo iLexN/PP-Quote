@@ -64,16 +64,16 @@ END;
                 $out[$sk] = $_SESSION[$sk];
             }
         }
+        if (array_key_exists('daytime-number', $_SESSION)) {
+            $out['tel'] = $_SESSION['daytime-number'];
+        }
         if (array_key_exists('maternity', $out)) {
             $out['maternity'] = 'yes';
         }
         if (array_key_exists('dental', $out)) {
             $out['dental'] = 'yes';
         }
-        if (array_key_exists('daytime-number', $out)) {
-            $out['tel'] = $out['daytime-number'];
-            unset($out['daytime-number']);
-        }
+        
 
         return http_build_query($out);
     }
