@@ -73,8 +73,9 @@ END;
         if (array_key_exists('dental', $out)) {
             $out['dental'] = 'yes';
         }
-        
 
-        return http_build_query($out);
+          ;
+        //return http_build_query($out);
+        return 'mo-user='.base64_encode(json_encode($out));
     }
 }
