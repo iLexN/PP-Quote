@@ -58,9 +58,7 @@ END;
     public function toMoUrlQuery(){
         $allow = array('name','email','tel','country-coverage','nationality','outpatient','maternity','dental');
         $out = array();
-
-        error_log(print_r($_SESSION,1));
-
+        
         foreach ( $allow as $sk ){
             if (array_key_exists($sk, $_SESSION)) {
                 $out[$sk] = $_SESSION[$sk];
