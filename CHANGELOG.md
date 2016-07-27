@@ -1,4 +1,23 @@
 #### [Current]
+ * [f9b3c9c](../../commit/f9b3c9c) - __(iLexN)__ fix tel day-time-num
+
+#### [0.4.1]
+ * [aa2b333](../../commit/aa2b333) - __(iLexN)__ clear errorLog
+
+#### [0.4.0]
+ * [4f22070](../../commit/4f22070) - __(iLexN)__ add mo url query , user info in session
+ * [b2a4d33](../../commit/b2a4d33) - __(iLexN)__ add mo url query
+ * [0695c79](../../commit/0695c79) - __(iLexN)__ cs fix
+ * [c341325](../../commit/c341325) - __(iLexN)__ Create .gitattributes
+ * [4d498b7](../../commit/4d498b7) - __(iLexN)__ ci fix mix end of lines
+ * [c5394c3](../../commit/c5394c3) - __(iLexN)__ add change log
+ * [1c9a32a](../../commit/1c9a32a) - __(iLexN)__ cs fix
+ * [2888d39](../../commit/2888d39) - __(iLexN)__ method improve
+ * [356a5cf](../../commit/356a5cf) - __(iLexN)__ clear un used code
+ * [e396188](../../commit/e396188) - __(iLexN)__ cs
+ * [215a331](../../commit/215a331) - __(iLexN)__ checkDate  code improve
+
+#### [0.3.1]
  * [a246d8e](../../commit/a246d8e) - __(iLexN)__ cs fix
  * [6a78407](../../commit/6a78407) - __(iLexN)__ cs fix
  * [d5de29d](../../commit/d5de29d) - __(iLexN)__ cs fix
