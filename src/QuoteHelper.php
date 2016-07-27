@@ -54,4 +54,21 @@ END;
     {
         return '<script src="//resources.pacificprime.com/widget/conversion.js?uid='.$uid.'"></script>';
     }
+
+    public function toMoUrlQuery(){
+        $allow = array('name','email','tel','country-coverage','nationality','outpatient','maternity','dental');
+        $out = array();
+        foreach ( $allow as $sk ){
+            if (array_key_exists($sk, $_SESSION)) {
+                $out[$sk] = $_SESSION[$sk];
+            }
+        }
+        if (array_key_exists('maternity', $out)) {
+            $out['maternity'] = 'yes';
+        }
+        if (array_key_exists('dental', $out)) {
+            $out['dental'] = 'yes';
+        }
+        return http_build_query($out);
+    }
 }
