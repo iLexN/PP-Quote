@@ -55,11 +55,12 @@ END;
         return '<script src="//resources.pacificprime.com/widget/conversion.js?uid='.$uid.'"></script>';
     }
 
-    public function toMoUrlQuery(){
-        $allow = array('name','email','tel','country-coverage','nationality','outpatient','maternity','dental');
-        $out = array();
-        
-        foreach ( $allow as $sk ){
+    public function toMoUrlQuery()
+    {
+        $allow = ['name', 'email', 'tel', 'country-coverage', 'nationality', 'outpatient', 'maternity', 'dental'];
+        $out = [];
+
+        foreach ($allow as $sk) {
             if (array_key_exists($sk, $_SESSION)) {
                 $out[$sk] = $_SESSION[$sk];
             }
@@ -73,7 +74,7 @@ END;
         if (array_key_exists('dental', $out)) {
             $out['dental'] = 'yes';
         }
-        
+
         return 'mo-user='.base64_encode(json_encode($out));
     }
 }
