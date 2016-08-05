@@ -90,7 +90,7 @@ class Quote implements \ArrayAccess
     private function getPostDate()
     {
         $postData = array_merge($this->defaultFieldValue, $this->postInfo);
-        $postData['remote_ip'] = $_SERVER['REMOTE_ADDR'];
+        $postData['remote_ip'] = $this->getClientIp();
         $postData['from_path'] = $_SERVER['REQUEST_URI'];
         $postData['end_time'] = date('Y-m-d H:i:s', time());
         $postData['page_path'] = implode(' -> ', $_SESSION['page_path']);
@@ -217,6 +217,20 @@ class Quote implements \ArrayAccess
     public function getErrors()
     {
         return $this->errors;
+    }
+
+    /**
+     * get Client IP , support cloudflare
+     *
+     * @return string
+     */
+    public function getClientIp()
+    {
+        if(isset($_SERVER['HTTP_CF_CONNECTING_IP']))
+        {
+                return  $_SERVER['HTTP_CF_CONNECTING_IP'];
+        }
+        return  $_SERVER["REMOTE_ADDR"];
     }
 
     /**
