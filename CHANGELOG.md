@@ -1,4 +1,12 @@
 #### [Current]
+ * [e44d052](../../commit/e44d052) - __(iLexN)__ Merge pull request  [#7](../../issues/7) from iLexN/analysis-8m0aBa
+ * [37495fb](../../commit/37495fb) - __(iLexN)__ Applied fixes from StyleCI
+ * [764bc4c](../../commit/764bc4c) - __(iLexN)__ add client ip check for cloudflare
+ * [63ed3d6](../../commit/63ed3d6) - __(iLexN)__ Merge pull request  [#6](../../issues/6) from iLexN/analysis-qyrGrG
+ * [ccaac48](../../commit/ccaac48) - __(iLexN)__ Applied fixes from StyleCI
+ * [7581351](../../commit/7581351) - __(iLexN)__ change log
+
+#### [0.4.4]
  * [a424f80](../../commit/a424f80) - __(iLexN)__ cs fix
 
 #### [0.4.3]
