@@ -117,22 +117,13 @@ class Quote implements \ArrayAccess
             if (empty($ruleset)) {
                 continue;
             }
-            $error[] = $this->checkFieldsbyRule($field, $ruleset);
-        }
-
-        return $error;
-    }
-
-    private function checkFieldsbyRule($field, $ruleset)
-    {
-        $error = [];
-        foreach ($ruleset as $rule) {
-            $errorStr = $this->checkRule($rule, $this->offsetGet($field));
-            if (!empty($errorStr)) {
-                $error[$field] = $errorStr;
+            foreach ($ruleset as $rule) {
+                $errorStr = $this->checkRule($rule, $this->offsetGet($field));
+                if (!empty($errorStr)) {
+                    $error[$field] = $errorStr;
+                }
             }
         }
-
         return $error;
     }
 
