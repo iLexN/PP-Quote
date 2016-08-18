@@ -117,7 +117,7 @@ class Quote implements \ArrayAccess
             if (empty($ruleset)) {
                 continue;
             }
-            $error = $this->checkFieldsbyRule($field, $ruleset);
+            $error[] = $this->checkFieldsbyRule($field, $ruleset);
         }
 
         return $error;
