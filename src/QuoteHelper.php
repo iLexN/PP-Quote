@@ -47,7 +47,8 @@ END;
 
     public function visitorJS()
     {
-        return '<script type="text/javascript" src="//resources.pacificprime.com/widget/visitor.js?ref='.$this->ref.'&tag='.$this->source.'"></script>';
+        return '<script type="text/javascript" src="//resources.pacificprime.com/widget/visitor.js?ref='.
+                $this->ref.'&tag='.$this->source.'"></script>';
     }
 
     public function conversionJS($uid)
@@ -66,6 +67,9 @@ END;
             }
         }
         if (array_key_exists('daytime-number', $_SESSION)) {
+            $out['tel'] = $_SESSION['daytime-number'];
+        }
+        if (array_key_exists('phone', $_SESSION)) {
             $out['tel'] = $_SESSION['daytime-number'];
         }
         /**
