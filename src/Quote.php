@@ -124,6 +124,7 @@ class Quote implements \ArrayAccess
                 }
             }
         }
+
         return $error;
     }
 

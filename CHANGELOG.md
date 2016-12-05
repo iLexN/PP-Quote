@@ -1,4 +1,5 @@
 #### [Current]
+ * [ed82b7f](../../commit/ed82b7f) - __(2016-12-05 16:22:12 +0800)__ change log update
  * [26d477a](../../commit/26d477a) - __(2016-12-01 16:26:29 +0800)__ add phone fall back daytime-number
  * [c0593bc](../../commit/c0593bc) - __(2016-08-23 14:52:10 +0800)__ comment martey / dental
 
