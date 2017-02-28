@@ -72,14 +72,12 @@ END;
         if (array_key_exists('phone', $_SESSION)) {
             $out['tel'] = $_SESSION['daytime-number'];
         }
-        /*
         if (array_key_exists('maternity', $out)) {
             $out['maternity'] = 'yes';
         }
         if (array_key_exists('dental', $out)) {
             $out['dental'] = 'yes';
         }
-        **/
 
         return 'mo-user='.base64_encode(json_encode($out));
     }
