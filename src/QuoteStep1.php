@@ -18,7 +18,7 @@ class QuoteStep1
     {
         $this->quote->clearUID();
         if (!empty($data)) {
-            if ($this->quote->validate($_POST)) {
+            if ($this->quote->validate($data)) {
                 $this->parseResult($this->quote->post());
 
                 return true;
