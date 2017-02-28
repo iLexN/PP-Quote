@@ -127,6 +127,7 @@ class Quote implements \ArrayAccess
                 }
             }
         }
+
         return $error;
     }
 
@@ -220,7 +221,7 @@ class Quote implements \ArrayAccess
      */
     public function getClientIp()
     {
-        if ( isset($this->extraSetting['ip']) && $this->extraSetting['ip'] === false ) {
+        if (isset($this->extraSetting['ip']) && $this->extraSetting['ip'] === false) {
             return '';
         }
 

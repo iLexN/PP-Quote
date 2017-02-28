@@ -1,5 +1,6 @@
 #### [Current]
- * [58f3f80](../../commit/58f3f80) - __(2017-02-28 12:11:31 +0800)__ add extraSetting config , eg. ip
+ * [8475ae3](../../commit/8475ae3) - __(2017-02-28 14:28:14 +0800)__ ci fix
+ * [77bfdc6](../../commit/77bfdc6) - __(2017-02-28 12:12:25 +0800)__ add extraSetting config , eg. ip
  * [32061c8](../../commit/32061c8) - __(2017-02-28 12:10:50 +0800)__ use pass data , not $_POST
  * [662ed1f](../../commit/662ed1f) - __(2017-02-28 12:09:49 +0800)__ add back martey / dental
  * [ea86d2a](../../commit/ea86d2a) - __(2016-12-05 16:24:18 +0800)__ cs fix
