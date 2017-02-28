@@ -29,6 +29,8 @@ class Quote implements \ArrayAccess
 
     private $defaultFieldValue = [];
 
+    private $extraSetting = [];
+
     /**
      * @param string $url
      * @param array  $setting
@@ -40,6 +42,7 @@ class Quote implements \ArrayAccess
         if (!empty($setting)) {
             $this->fields = $setting['fields'];
             $this->defaultFieldValue = $setting['default'];
+            $this->extraSetting = $setting['extra'];
         }
         $this->defaultFieldValue['start_time'] = $this->getStartTime();
         $this->defaultFieldValue['referred_domain'] = $this->getRefDomain();
@@ -124,7 +127,6 @@ class Quote implements \ArrayAccess
                 }
             }
         }
-
         return $error;
     }
 
@@ -218,6 +220,10 @@ class Quote implements \ArrayAccess
      */
     public function getClientIp()
     {
+        if ( isset($this->extraSetting['ip']) && $this->extraSetting['ip'] === false ) {
+            return '';
+        }
+
         if (isset($_SERVER['HTTP_CF_CONNECTING_IP'])) {
             return  $_SERVER['HTTP_CF_CONNECTING_IP'];
         }

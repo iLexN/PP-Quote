@@ -1,4 +1,8 @@
 #### [Current]
+ * [58f3f80](../../commit/58f3f80) - __(2017-02-28 12:11:31 +0800)__ add extraSetting config , eg. ip
+ * [32061c8](../../commit/32061c8) - __(2017-02-28 12:10:50 +0800)__ use pass data , not $_POST
+ * [662ed1f](../../commit/662ed1f) - __(2017-02-28 12:09:49 +0800)__ add back martey / dental
+ * [ea86d2a](../../commit/ea86d2a) - __(2016-12-05 16:24:18 +0800)__ cs fix
  * [ed82b7f](../../commit/ed82b7f) - __(2016-12-05 16:22:12 +0800)__ change log update
  * [26d477a](../../commit/26d477a) - __(2016-12-01 16:26:29 +0800)__ add phone fall back daytime-number
  * [c0593bc](../../commit/c0593bc) - __(2016-08-23 14:52:10 +0800)__ comment martey / dental
